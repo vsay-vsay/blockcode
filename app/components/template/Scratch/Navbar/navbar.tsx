@@ -6,28 +6,26 @@ import { vsayPng } from "~/images";
 function Navbar() {
   const [token, setToken] = useState("");
   const [userName, setUserName] = useState("");
-
   const navigate = useNavigate();
 
+  // Initialize state after component mounts (client-side only)
   useEffect(() => {
-    if (localStorage.getItem("authToken")) {
-      setToken(localStorage.getItem("authToken"));
-    }
-    setUserName(localStorage.getItem("userName"));
-  }, []);
+    const storedToken = localStorage.getItem("token") || "";
+    const storedUserName = localStorage.getItem("userName") || "";
+    setToken(storedToken);
+    setUserName(storedUserName);
 
-  // useEffect(() => {
-  //   if (token == "" && userName == "") {
-  //     navigate("/");
-  //   }
-  // }, [navigate, userName, token]);
+    // Redirect if no token
+    if (!storedToken) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleSubmit = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
-    setUserName("");
     setToken("");
-
+    setUserName("");
     navigate("/");
   };
 
