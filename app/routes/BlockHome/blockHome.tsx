@@ -4,6 +4,14 @@ import { FaStar } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router";
 import Navbar from "~/components/template/Scratch/Navbar/navbar";
+import { scratchLogo } from "~/images";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "VSAY || Home page" },
+    { name: "login", content: "Welcome to VSAY Portal" },
+  ];
+}
 
 const BlockHome = () => {
   const [products, setProducts] = useState([
@@ -14,7 +22,7 @@ const BlockHome = () => {
         "A visual programming platform that enables users to create interactive stories, games, and animations using drag-and-drop blocks. Perfect for beginners and educators.",
       price: 0.0,
       rating: 4.7,
-      image: "",
+      image: scratchLogo,
       features: [
         "Block-based programming",
         "Interactive learning",
