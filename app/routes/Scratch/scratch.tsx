@@ -249,7 +249,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <div className="container">
+      <div className="container1">
         <div className="blockly_container">
           <div id="blocklyDiv"></div>
         </div>
