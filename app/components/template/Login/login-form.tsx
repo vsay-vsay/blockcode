@@ -5,6 +5,7 @@ import { Label } from "~/components/ui/label";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { loginUser } from "~/routes/Login/api";
+import { LoaderCircle } from "lucide-react";
 
 export function LoginForm({
   className,
@@ -32,7 +33,7 @@ export function LoginForm({
     }
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -105,7 +106,7 @@ export function LoginForm({
           />
         </div>
         <Button type="submit" className="w-full" disabled={loading}>
-          Login
+         {loading&&<LoaderCircle className=" animate-spin w-5 h-5 mr-3"/>} Login 
         </Button>
         <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
           <span className="bg-background text-muted-foreground relative z-10 px-2">

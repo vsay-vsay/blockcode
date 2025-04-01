@@ -5,7 +5,7 @@ header {
   height: 30px;
 }
 
-.container {
+.container1 {
   margin-top: 20px;
 
   display: flex;
@@ -15,13 +15,13 @@ header {
   height: 90vh;
 }
 
-.container .blockly_container {
+.container1 .blockly_container {
   width: 60%;
   height: 100%;
   padding: 0px 0 0 15px;
 }
 
-.container .sprite_area {
+.container1 .sprite_area {
   width: 35%;
   height: 100%;
   margin-right: 15px;
