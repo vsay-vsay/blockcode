@@ -6,6 +6,8 @@ import { useNavigate } from "react-router";
 import Navbar from "~/components/template/Scratch/Navbar/navbar";
 import { scratchLogo } from "~/images";
 
+
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "VSAY || Home page" },
@@ -84,7 +86,7 @@ const BlockHome = () => {
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute top-2 right-2">
+        {/* <div className="absolute top-2 right-2">
           <button
             onClick={() => handleProductSelect(product)}
             className={`p-2 rounded-full ${
@@ -95,7 +97,7 @@ const BlockHome = () => {
           >
             ✓
           </button>
-        </div>
+        </div> */}
       </div>
       <div className={`p-4 ${viewMode === "grid" ? "" : "w-2/3"}`}>
         <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
@@ -138,9 +140,9 @@ const BlockHome = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm">
+     
         <Navbar />
-      </header>
+   
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
