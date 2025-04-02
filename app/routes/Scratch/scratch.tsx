@@ -3,55 +3,6 @@ import "./scratch.css";
 import React, { useEffect, useState } from "react";
 import * as Blockly from "blockly";
 import { javascriptGenerator } from "blockly/javascript";
-
-
-const customTheme = new Blockly.Theme('customTheme', {
-  'blockStyles': {
-    'motion_blocks': {
-      'colourPrimary': '#E67E22', // Orange
-      'colourSecondary': '#D35400',
-      'colourTertiary': '#A04000',
-      'hat': 'round'
-    },
-    'looks_blocks': {
-      'colourPrimary': '#8E44AD', // Purple
-      'colourSecondary': '#7D3C98',
-      'colourTertiary': '#6C3483',
-      'hat': 'round'
-    },
-    'sound_blocks': {
-      'colourPrimary': '#E74C3C', // Red
-      'colourSecondary': '#C0392B',
-      'colourTertiary': '#A93226',
-      'hat': 'round'
-    },
-    'events_blocks': {
-      'colourPrimary': '#F1C40F', // Yellow
-      'colourSecondary': '#D4AC0D',
-      'colourTertiary': '#B7950B',
-      'hat': 'round'
-    },
-    'control_blocks': {
-      'colourPrimary': '#2ECC71', // Green
-      'colourSecondary': '#27AE60',
-      'colourTertiary': '#229954',
-      'hat': 'round'
-    },
-    'operator_blocks': {
-      'colourPrimary': '#3498DB', // Blue
-      'colourSecondary': '#2980B9',
-      'colourTertiary': '#2471A3',
-      'hat': 'round'
-    },
-    'variables_blocks': {
-      'colourPrimary': '#FF9800', // Orange
-      'colourSecondary': '#FB8C00',
-      'colourTertiary': '#F57C00',
-      'hat': 'round'
-    }
-  }
-});
-
 import Navbar from "../../components/template/Scratch/Navbar/navbar";
 
 import {
@@ -95,6 +46,12 @@ import SpriteControl from "../../components/template/Scratch/sprite-control/Spri
 
 import { catSprite } from "~/images";
 import { useNavigate } from "react-router";
+import Theme from "./Theme";
+import ContinuousCategory from "./ToolBox/ContinuousCategory";
+import ContinuousFlyout from "./ToolBox/ContinuousFLyout";
+import ContinuousFlyoutMetrics from "./ToolBox/ContinuousMetricsFlyout";
+import ContinuousMetrics from "./ToolBox/ContinuousMetrics";
+import ContinuousToolbox from "./ToolBox/ContinuousToolbox";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -246,9 +203,15 @@ function App() {
     defineJsGenerators();
 
     // Initialize Blockly with toolbox
-    const workspace = Blockly.inject("blocklyDiv", { toolbox:toolbox,
-      theme:customTheme
-     });
+    const workspace = Blockly.inject("blocklyDiv", {
+      theme: Theme,
+      toolbox,
+      grid: {
+        spacing: 20,
+        width: 3,
+        height: 3,
+      },
+    });
 
     // Generate code on workspace change
     const generateCode = () => {
@@ -296,9 +259,8 @@ function App() {
 
   return (
     <main style={{ backgroundColor: "#e6f0ff", height: "100vh" }}>
-  
-        <Navbar />
-    
+      <Navbar />
+
       <div className="container1">
         <div className="blockly_container">
           <div id="blocklyDiv"></div>
