@@ -2,7 +2,7 @@ import "./spriteControl.css";
 
 import React from "react";
 
-import { bg1, bg2, catSprite, girl, penguin } from "~/images";
+import { bg1, bg3, bg2, catSprite, girl, penguin } from "~/images";
 
 function SpriteControl(props) {
   const { setImgPath, setBgPath } = props;
@@ -46,8 +46,12 @@ function SpriteControl(props) {
           <div className="image_container" onClick={() => handleBgClick(bg1)}>
             <img src={bg1} alt="bg1" />
           </div>
+         
           <div className="image_container" onClick={() => handleBgClick(bg2)}>
             <img src={bg2} alt="bg2" />
+          </div>
+          <div className="image_container" onClick={() => handleBgClick(bg3)}>
+            <img src={bg3} alt="bg1" />
           </div>
         </div>
       </div>

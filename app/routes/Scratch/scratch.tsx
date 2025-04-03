@@ -47,11 +47,7 @@ import SpriteControl from "../../components/template/Scratch/sprite-control/Spri
 import { catSprite } from "~/images";
 import { useNavigate } from "react-router";
 import Theme from "./Theme";
-import ContinuousCategory from "./ToolBox/ContinuousCategory";
-import ContinuousFlyout from "./ToolBox/ContinuousFLyout";
-import ContinuousFlyoutMetrics from "./ToolBox/ContinuousMetricsFlyout";
-import ContinuousMetrics from "./ToolBox/ContinuousMetrics";
-import ContinuousToolbox from "./ToolBox/ContinuousToolbox";
+
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -204,13 +200,8 @@ function App() {
 
     // Initialize Blockly with toolbox
     const workspace = Blockly.inject("blocklyDiv", {
-      theme: Theme,
       toolbox,
-      grid: {
-        spacing: 20,
-        width: 3,
-        height: 3,
-      },
+      theme:Theme
     });
 
     // Generate code on workspace change

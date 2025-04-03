@@ -9,6 +9,10 @@ function SpriteMovement(props) {
 
   const styles = {
     backgroundImage: `url(${bgPath})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100%",
+    display: "flex",
   };
 
   return (
